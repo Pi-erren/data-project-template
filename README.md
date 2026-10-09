@@ -8,6 +8,7 @@ Template de départ pour tout projet data : **Python + uv + Docker**.
 .
 ├── src/                 # code du projet
 │   └── main.py          # point d'entrée
+├── scripts/             # notebooks Jupyter d'exploration
 ├── data/                # données locales (montées dans le conteneur, ignorées par git)
 ├── tests/               # tests pytest
 ├── pyproject.toml       # dépendances (uv)

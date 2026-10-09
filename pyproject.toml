@@ -5,6 +5,9 @@ description = "Template to start any data project with uv and Docker."
 requires-python = ">=3.12"
 dependencies = [
     "fastparquet>=2026.9.0",
+    "ipykernel>=7.4.0",
+    "jupyter>=1.1.1",
+    "jupyterlab>=4.6.4",
     "numpy>=2.5.3",
     "pandas>=2.2",
     "plotly>=7.1.0",
