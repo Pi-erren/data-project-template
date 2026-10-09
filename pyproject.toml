@@ -4,7 +4,13 @@ version = "0.1.0"
 description = "Template to start any data project with uv and Docker."
 requires-python = ">=3.12"
 dependencies = [
+    "fastparquet>=2026.9.0",
+    "numpy>=2.5.3",
     "pandas>=2.2",
+    "plotly>=7.1.0",
+    "pyarrow>=25.0.1",
+    "scikit-learn>=1.9.1",
+    "shap>=0.52.0",
 ]
 
 [dependency-groups]
