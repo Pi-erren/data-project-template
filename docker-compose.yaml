@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    container_name: data-project-app
+    volumes:
+      - ./src:/app/src
+      - ./data:/app/data
+    environment:
+      - PYTHONUNBUFFERED=1
