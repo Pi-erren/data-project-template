@@ -7,17 +7,27 @@
   "customizations": {
     "vscode": {
       "settings": {
-        "python.defaultInterpreterPath": "/app/.venv/bin/python"
+        "python.defaultInterpreterPath": "/app/.venv/bin/python",
+        "terminal.integrated.env.linux": {
+          "GIT_AUTHOR_NAME": "${localEnv:GIT_AUTHOR_NAME}",
+          "GIT_AUTHOR_EMAIL": "${localEnv:GIT_AUTHOR_EMAIL}"
+        }
       },
       "extensions": [
         "ms-python.python",
         "charliermarsh.ruff",
         "ms-toolsai.jupyter",
         "ms-toolsai.jupyter-renderers",
-        "ms-azuretools.vscode-docker"
+        "ms-azuretools.vscode-docker",
+        "eamodio.gitlens",
+        "ms-toolsai.datawrangler"
       ]
     }
   },
   "forwardPorts": [],
-  "postCreateCommand": "uv sync"
+  "postCreateCommand": "uv sync --frozen --no-install-project --no-dev",
+  "remoteEnv": {
+    "GIT_AUTHOR_NAME": "${localEnv:GIT_AUTHOR_NAME}",
+    "GIT_AUTHOR_EMAIL": "${localEnv:GIT_AUTHOR_EMAIL}"
+  }
 }
