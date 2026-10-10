@@ -7,11 +7,7 @@
   "customizations": {
     "vscode": {
       "settings": {
-        "python.defaultInterpreterPath": "/app/.venv/bin/python",
-        "terminal.integrated.env.linux": {
-          "GIT_AUTHOR_NAME": "${localEnv:GIT_AUTHOR_NAME}",
-          "GIT_AUTHOR_EMAIL": "${localEnv:GIT_AUTHOR_EMAIL}"
-        }
+        "python.defaultInterpreterPath": "/app/.venv/bin/python"
       },
       "extensions": [
         "ms-python.python",
