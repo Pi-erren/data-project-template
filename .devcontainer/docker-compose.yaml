@@ -5,6 +5,5 @@ services:
       dockerfile: .devcontainer/Dockerfile
     volumes:
       - ..:/app
-      - ~/.ssh:/root/.ssh:ro
     environment:
       - PYTHONUNBUFFERED=1
