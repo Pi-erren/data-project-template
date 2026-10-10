@@ -3,7 +3,6 @@ services:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
-    container_name: data-project-app
     volumes:
       - ..:/app
       - ~/.ssh:/root/.ssh:ro
