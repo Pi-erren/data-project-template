@@ -1,9 +1,8 @@
 {
   "name": "data-project-template",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": ".."
-  },
+  "dockerComposeFile": "docker-compose.yaml",
+  "service": "app",
+  "workspaceFolder": "/app",
   "customizations": {
     "vscode": {
       "settings": {
