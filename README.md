@@ -10,7 +10,6 @@ Template de départ pour tout projet data : **Python + uv + Docker**, packagé c
 │   └── main.py              # point d'entrée
 ├── scripts/                 # notebooks Jupyter d'exploration
 ├── data/                    # données locales (ignorées par git)
-├── tests/                   # tests pytest
 ├── pyproject.toml           # dépendances (uv)
 ├── uv.lock                  # lockfile reproductible
 └── .devcontainer/           # tout l'environnement Docker
@@ -30,14 +29,13 @@ Template de départ pour tout projet data : **Python + uv + Docker**, packagé c
 ```bash
 uv sync
 uv run python src/main.py
-uv run pytest
 ```
 
 ## Utiliser le compose directement (sans VS Code)
 
 ```bash
 docker compose -f .devcontainer/docker-compose.yaml up --build
-docker compose -f .devcontainer/docker-compose.yaml run --rm app uv run pytest
+docker compose -f .devcontainer/docker-compose.yaml run --rm app uv run python src/main.py
 ```
 
 ## Ajouter une dépendance
