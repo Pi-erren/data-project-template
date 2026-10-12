@@ -7,3 +7,4 @@ services: # File is not used with the current config
       - ..:/app
     environment:
       - PYTHONUNBUFFERED=1
+      - SSH_AUTH_SOCK

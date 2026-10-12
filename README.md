@@ -104,16 +104,29 @@ Puis **Rebuild Container** dans VS Code (ou `docker compose ... up --build`).
 
 Le conteneur n'a **pas** besoin de vos clés SSH montées : VS Code Dev Containers forward
 automatiquement votre `ssh-agent` local dans le conteneur (`SSH_AUTH_SOCK`).
-Assurez-vous juste que votre agent tourne sur la machine hôte avec la clé chargée :
+Important : `ssh-add` doit être exécuté **sur la machine hôte**, pas dans le conteneur —
+la clé reste sur l'hôte, seul l'agent y est forwardé. Assurez-vous que votre agent
+tourne sur la machine hôte avec la clé chargée :
 
 ```bash
-ssh-add                       # liste les clés chargées
+ssh-add                       # liste les clés chargées (à lancer sur l'hôte)
 ssh-add ~/.ssh/id_ed25519    # si aucune
 ```
 
 Ensuite `git push` / `git pull` en SSH fonctionnent directement dans le conteneur.
-`git` et `openssh-client` sont installés dans l'image, et `GIT_AUTHOR_NAME` /
-`GIT_AUTHOR_EMAIL` sont propagés depuis la machine hôte.
+`git` et `openssh-client` sont installés dans l'image.
+
+### Identité Git dans le conteneur
+
+Le nom et l'email de commit sont repris de `GIT_AUTHOR_NAME` / `GIT_AUTHOR_EMAIL`
+définis sur la machine hôte (via `postStartCommand` dans `devcontainer.json`).
+Si ces variables ne sont pas définies sur l'hôte, configurez l'identité **dans le
+conteneur**, une seule fois :
+
+```bash
+git config --global user.name  "Prénom Nom"
+git config --global user.email "prenom@example.com"
+```
 
 ## À faire pour un nouveau projet
 
