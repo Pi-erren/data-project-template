@@ -24,23 +24,7 @@ Template de départ pour tout projet data : **Python + uv + Docker**, packagé c
 2. `Ctrl+Shift+P` → **Dev Containers: Reopen in Container** (l'extension Dev Containers s'occupe du build).
 3. Le workspace complet est monté dans `/app`, les dépendances sont installées par `uv sync` au `postCreateCommand`.
 
-## Initialiser un projet uv (si besoin)
-
-Ce template est déjà un projet uv valide (`pyproject.toml` + `uv.lock`). Si vous partez
-d'un dossier vide ou si vous devez réinitialiser la configuration :
-
-```bash
-uv init --bare                    # crée un pyproject.toml minimal (sans écraser l'existant)
-uv add <package>                  # ajoute une dépendance (met à jour pyproject.toml et uv.lock)
-uv add --group dev <tool>         # outil de dev uniquement (ruff, pyright...)
-uv sync                           # crée/mets à jour .venv depuis uv.lock
-uv lock --upgrade                 # met à jour les versions verrouillées
-```
-
-Installez uv s'il n'est pas présent : `curl -LsSf https://astral.sh/uv/install.sh | sh`
-(ou `pip install uv`, `pipx install uv`, `brew install uv`).
-
-## Définir la commande de lancement du projet
+## Transformer src en un package exécutable avec uv
 
 Le code vit dans `src/`. Pour lancer le projet avec une commande simple (au lieu de
 `uv run python src/main.py`), déclarez un point d'entrée console dans `pyproject.toml` :
@@ -76,20 +60,6 @@ Le code vit dans `src/`. Pour lancer le projet avec une commande simple (au lieu
 Le nom à gauche (`my-project`) est la commande tapée dans le terminal ; la valeur est le
 chemin d'import `package.module:fonction` appelé au démarrage. Pour refléter ce changement
 dans Docker, mettez à jour le `CMD` du `Dockerfile` : `CMD ["uv", "run", "my-project"]`.
-
-## Démarrage rapide (local, sans Docker)
-
-```bash
-uv sync
-uv run python src/main.py
-```
-
-## Utiliser le compose directement (sans VS Code)
-
-```bash
-docker compose -f .devcontainer/docker-compose.yaml up --build
-docker compose -f .devcontainer/docker-compose.yaml run --rm app uv run python src/main.py
-```
 
 ## Ajouter une dépendance
 
