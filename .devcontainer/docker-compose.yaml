@@ -1,4 +1,4 @@
-services:
+services: # File is not used with the current config
   app:
     build:
       context: ..

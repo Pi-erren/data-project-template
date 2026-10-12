@@ -1,8 +1,11 @@
 {
   "name": "data-project-template",
-  "dockerComposeFile": "docker-compose.yaml",
-  "service": "app",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
   "workspaceFolder": "/app",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached",
   "customizations": {
     "vscode": {
       "settings": {
@@ -13,13 +16,13 @@
         "charliermarsh.ruff",
         "ms-toolsai.jupyter",
         "ms-toolsai.jupyter-renderers",
-        "ms-azuretools.vscode-docker",
         "eamodio.gitlens",
         "ms-toolsai.datawrangler"
       ]
     }
   },
   "forwardPorts": [],
+  "postCreateCommand": "uv sync --frozen",
   "remoteEnv": {
     "GIT_AUTHOR_NAME": "${localEnv:GIT_AUTHOR_NAME}",
     "GIT_AUTHOR_EMAIL": "${localEnv:GIT_AUTHOR_EMAIL}"
