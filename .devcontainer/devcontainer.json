@@ -22,9 +22,5 @@
     }
   },
   "forwardPorts": [],
-  "postCreateCommand": "uv sync",
-  "remoteEnv": {
-    "GIT_AUTHOR_NAME": "${localEnv:GIT_AUTHOR_NAME}",
-    "GIT_AUTHOR_EMAIL": "${localEnv:GIT_AUTHOR_EMAIL}"
-  }
+  "postCreateCommand": "uv sync"
 }
