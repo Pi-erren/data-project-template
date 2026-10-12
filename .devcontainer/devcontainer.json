@@ -12,11 +12,18 @@
         "python.defaultInterpreterPath": "/opt/.venv/bin/python"
       },
       "extensions": [
+        // Python extension
         "ms-python.python",
         "charliermarsh.ruff",
         "ms-toolsai.jupyter",
         "ms-toolsai.jupyter-renderers",
+
+        // AI Coding Agent extenstions 
         "mistralai.mistral-vibe-code",
+        // "saoudrizwan.claude-dev",
+        // "kilocode.kilo-code",
+
+        // Tools
         "eamodio.gitlens",
         "ms-toolsai.datawrangler"
       ]
