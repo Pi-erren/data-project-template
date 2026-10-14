@@ -1,0 +1,9 @@
+services: # File is not used with the current config
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ..:/app
+    environment:
+      - PYTHONUNBUFFERED=1

@@ -4,20 +4,30 @@
     "dockerfile": "Dockerfile",
     "context": ".."
   },
+  "workspaceFolder": "/app",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached",
   "customizations": {
     "vscode": {
       "settings": {
-        "python.defaultInterpreterPath": "/app/.venv/bin/python"
+        "python.defaultInterpreterPath": "/opt/.venv/bin/python"
       },
       "extensions": [
+        // Python extension
         "ms-python.python",
         "charliermarsh.ruff",
         "ms-toolsai.jupyter",
         "ms-toolsai.jupyter-renderers",
-        "ms-azuretools.vscode-docker"
+
+        // AI Coding Agent extenstions 
+        "mistralai.mistral-vibe-code",
+        // "saoudrizwan.claude-dev",
+        // "kilocode.kilo-code",
+
+        // Tools
+        "eamodio.gitlens",
+        "ms-toolsai.datawrangler"
       ]
     }
   },
-  "forwardPorts": [],
   "postCreateCommand": "uv sync"
 }
