@@ -30,5 +30,8 @@
     }
   },
   "forwardPorts": [],
+  "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,readonly"
+  ],
   "postCreateCommand": "uv sync"
 }
