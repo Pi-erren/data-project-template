@@ -68,23 +68,6 @@ uv add <package>          # ajoute dans pyproject.toml + uv.lock
 uv add --group dev <tool> # outil de dev uniquement
 ```
 
-Puis **Rebuild Container** dans VS Code (ou `docker compose ... up --build`).
-
-## SSH / Git depuis le conteneur
-
-Le conteneur n'a **pas** besoin de vos clés SSH montées : VS Code Dev Containers forward
-automatiquement votre `ssh-agent` local dans le conteneur (`SSH_AUTH_SOCK`).
-Assurez-vous juste que votre agent tourne sur la machine hôte avec la clé chargée :
-
-```bash
-ssh-add                       # liste les clés chargées
-ssh-add ~/.ssh/id_ed25519    # si aucune
-```
-
-Ensuite `git push` / `git pull` en SSH fonctionnent directement dans le conteneur.
-`git` et `openssh-client` sont installés dans l'image, et `GIT_AUTHOR_NAME` /
-`GIT_AUTHOR_EMAIL` sont propagés depuis la machine hôte.
-
 ## À faire pour un nouveau projet
 
 1. Cloner ce template dans un nouveau repo (voir "Use this repository as template" sur GitHub).
