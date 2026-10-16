@@ -1,7 +1,7 @@
 FROM python:3.12-slim
 
 ENV UV_LINK_MODE=copy \
-    UV_PROJECT_ENVIRONMENT=/opt/.venv \
+    UV_PROJECT_ENVIRONMENT=/app/.venv \
     PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1
 
@@ -17,7 +17,5 @@ WORKDIR /app
 COPY pyproject.toml uv.lock* ./
 
 COPY . .
-
-# RUN uv sync --frozen --no-install-project --no-dev
 
 CMD []
